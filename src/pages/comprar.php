@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . '/../conecta.php');
+require_once(__DIR__ . '/../../conecta.php');
 
 if (!isset($_GET['id'])) {
     die("Pedido não informado.");

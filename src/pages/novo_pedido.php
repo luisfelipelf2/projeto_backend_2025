@@ -20,7 +20,7 @@
       <a href="clientes_cadastrados.php">Clientes Cadastrados</a>
     </div>
     <?php
-      require_once(__DIR__ . '/../conecta.php');
+      require_once(__DIR__ . '/../../conecta.php');
         if(isset($_GET['opcao']) && $_GET['opcao']=='a')
         {
           $id = $_GET['id'];

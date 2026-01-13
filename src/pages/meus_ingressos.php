@@ -1,6 +1,6 @@
 <?php
-// meus_ingressos.php
-require_once __DIR__ . '/../includes/db.php'; 
+
+require_once __DIR__ . '/../../includes/db.php'; 
 session_start();
 
 $pedido_id = $_GET['pedido_id'] ?? 1; 
@@ -34,7 +34,7 @@ $ingressos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="../styles/pages/index.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
-        /* Estilos específicos para o componente de Ingresso (Ticket Card) */
+
         .ticket-container {
             display: flex;
             flex-wrap: wrap;

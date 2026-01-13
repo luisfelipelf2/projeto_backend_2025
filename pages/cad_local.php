@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+// teste luar
 
 <h2 class="title">Cadastro de Local</h2>
 

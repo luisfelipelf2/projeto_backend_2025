@@ -1,6 +1,6 @@
 <?php
 include_once 'conecta.php';
-//teste
+
 $mensagem = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -24,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mysqli_stmt_bind_param(
         $stmt,
         "ssdssiiis",
-  
         $codigo,
         $tipo,
         $valor,
@@ -65,12 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form method="POST" class="form">
 
-      <div class="form-group w-100 mb-3">
+      <div class="mb-3">
         <label>Código</label>
         <input type="text" name="codigo" class="form-control" required>
       </div>
 
-      <div class="form-group w-100 mb-3">
+      <div class="mb-3">
         <label>Tipo</label>
         <select name="tipo" class="form-control" required>
           <option value="percentual">Percentual (%)</option>
@@ -78,17 +77,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </select>
       </div>
 
-      <div class="form-group w-100 mb-3">
+      <div class="mb-3">
         <label>Valor</label>
         <input type="number" step="0.01" name="valor" class="form-control" required>
       </div>
 
       <div class="row">
-        <div class="w-100 mb-3">
+        <div class="col mb-3">
           <label>Período inicial</label>
           <input type="date" name="periodo_ini" class="form-control" required>
         </div>
-        <div class="w-100 mb-3">
+        <div class="col mb-3">
           <label>Período final</label>
           <input type="date" name="periodo_fim" class="form-control" required>
         </div>
@@ -105,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
       </div>
 
-      <div class="form-group w-100 mb-3">
+      <div class="mb-3">
         <label>Canal restrito</label>
         <select name="canal_restrito" class="form-control" required>
           <option value="ecommerce">E-commerce</option>
@@ -114,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </select>
       </div>
 
-      <div class="form-group w-100 mb-3" >
+      <div class="mb-3">
         <label>Comissário (opcional)</label>
         <input type="number" name="comissario_id" class="form-control">
       </div>

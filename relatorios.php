@@ -9,9 +9,13 @@
 
     <title>Relatórios</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    
-    <link href="styles/auth_new.css" rel="stylesheet">
+     <link rel="stylesheet" href="src\styles\global.css" />
+     <link rel="stylesheet" href="src\styles\components\input.css" />
+     <link rel="stylesheet" href="src\styles\components\select.css" />
+     <link rel="stylesheet" href="src\styles\lista_new.css" />
+     <link rel="stylesheet" href="styles\texto.css" />
+
+     
   </head>
 
   <body>
@@ -30,13 +34,15 @@
       <div class="main">
         <div class="container">
           <br>
-          <h1 class="title">Exporte relatórios</h1>
+          
+
           <!-- Formulário para seleção de filtros e tipo de relatório -->
             <form action="pesquisa.php" method="POST" class="form">
-              <div class="form-group w-100 mb-3">
-                <label for="relatorios_id">Qual relatório você quer exportar hoje?</label>
-                <select class="form-control" name="relatorios_id" id="relatorios_id">
-                <option value="financeiro">Vendas/Finanças</option>  
+              <h1 class="title">Exporte relatórios</h1>
+              <div class="dropdown-wrapper" >
+                <span class="dropdown-label">Relatório a exportar</span>
+                <select name="relatorios_id" id="relatorios_id">
+                <option value="financeiro" disabled selected >Vendas/Finanças</option>  
                 <option value="ocupacao">Ingressos vendidos</option>  
                 <option value="checkin">Qtd de check-in</option>      
                 <option value="comissao">Vendas por comissão</option>
@@ -44,21 +50,20 @@
                 </select>
               </div>
 
-              <div class="row g-3 ">
-            
-              <div class="col-12 col-md-6 col-lg-3  w-100 mb-3">
-                <label for="data_inicio">Data Inicial</label>
-                <input  value="data_inicio" type="date" class="form-control" id="data_inicio" name="data_inicio" placeholder="Informe a data inicial" >  
+              <div class="input-wrapper">
+                <span class="input-label">Data Inicial</span>
+                <input value="data_inicio" type="date"  id="data_inicio" name="data_inicio" placeholder="Informe a data inicial" >  
               </div>
 
-              <div class="col-12 col-md-6 col-lg-3 w-100 mb-3">
-                <label for="data_final">Data Final</label>
-                <input  value="data_final" type="date" class="form-control" id="data_final" name="data_final" placeholder="Informe a data final." >  
+            
+              <div class="input-wrapper">
+                <span class="input-label" >Data Final</span>
+                <input  value="data_final" type="date"  id="data_final" name="data_final" placeholder="Informe a data final." >  
               </div>
 
                <!-- Filtros de organização e evento -->
-              <div class="col-12 col-md-6 col-lg-3">
-                <label for="organizacao_id">Qual organização?</label>
+              <div class="input-wrapper">
+                <span class="input-label" >Organização</span>
                 <select class="form-control" name="organizacao_id" id="organizacao_id">
                 <option value="" <?php echo ($organizacao_id === null || $organizacao_id === '') ? 'selected' : ''; ?>>-- Todas --</option>
                 <?php
@@ -74,8 +79,8 @@
                 </select>
               </div>
 
-              <div class="col-12 col-md-6 col-lg-3">
-                <label for="evento_id">Qual evento?</label>
+              <div class="input-wrapper">
+                <span class="input-label" >Evento</span>
                 <select class="form-control" name="evento_id" id="evento_id">
                 <option value="" <?php echo ($evento_id === null || $evento_id === '') ? 'selected' : ''; ?>>-- Todos --</option>
                 <?php
@@ -101,15 +106,15 @@
 
             </div>
           </form>
-          <h2 class="title mt-5">Relatório</h2>
+          <h2 class="lista-titulo">Relatório</h2>
           <?php 
           // Exibe os resultados do relatório, se houver
           if (isset($resultados_relatorio) && !empty($resultados_relatorio)) { 
           ?>
-            <div class="tabela">
-              <table class="table table-striped table-bordered">
+            <div>
+              <table class="table">
                 <!-- Cabeçalho da tabela -->
-                <thead class="cabecalho">
+                <thead class="th">
                   <tr>
                     <?php 
                     foreach ($campos_tabela as $campo) {

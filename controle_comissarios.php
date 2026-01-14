@@ -9,8 +9,12 @@
 
     <title>Controle de Comissários</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles/auth_new.css" rel="stylesheet">
+   <link rel="stylesheet" href="src\styles\global.css" />
+     <link rel="stylesheet" href="src\styles\components\input.css" />
+     <link rel="stylesheet" href="src\styles\components\select.css" />
+     <link rel="stylesheet" href="src\styles\lista_new.css" />
+     <link rel="stylesheet" href="styles\texto.css" />
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=edit" />
   </head>
 
   <body>
@@ -37,28 +41,28 @@
   <main role="main">
     <div class="main">
         <div class="container">
-          <h1 class="title">Controle de Comissários</h1>
+          
           <br>
           
             <form action="controle_comissarios.php" method="POST" class="form">
-
-                <div class="form-group w-100 mb-3">
-                    <label for="nome">Qual o nome do comissário (a)?</label>
+                <h1 class="title">Controle de Comissários</h1>
+                <div class="input-wrapper">
+                    <span class="input-label">Nome</span>
                     <input required value="<?php if(isset($nome)) echo $nome; ?>" type="text" class="form-control" id="nome" name="nome" placeholder="Informe o nome do comissário" size="120">  
                 </div>
 
-                <div class="form-group w-100 mb-3">
-                    <label for="regra_comissao">Qual a regra de comissão?</label>
+                <div class="input-wrapper">
+                    <span class="input-label">Regra de comissão</span>
                     <input required value="<?php if(isset($regra_comissao)) echo $regra_comissao; ?>" type="text" class="form-control" id="regra_comissao" name="regra_comissao" placeholder="Informe a regra de comissão" size="120">  
                 </div>
 
-                <div class="form-group w-100 mb-3">
-                    <label for="dados">Dados de contato</label>
+                <div class="input-wrapper">
+                    <span class="input-label">Contato</span>
                     <input required value="<?php if(isset($dados)) echo $dados; ?>" type="text" class="form-control" name="dados" id="dados" maxlength="30"  placeholder="Informe os dados de contato">  
                 </div>
                 
 
-                <div class="col-12 mt-3">
+                <div >
                     <input type="submit" class="button" value="Cadastrar">
                 </div>   
 
@@ -95,7 +99,7 @@
               ?>
               <br>
           <div class="row" style="margin-top:20px;">
-            <h2 class="title">Comissários cadastrados </h2>
+            <h2 class="lista-titulo">Comissários cadastrados </h2>
           </div>
           <div class="row">
             <table class="table">
@@ -103,7 +107,7 @@
                 <th>Nome comissário</th>
                 <th>Regra Comissão</th>
                 <th>Dados</th>
-                <th class="tdmenor">Editar</th>
+                <th class="material-symbols-outlined">edit</th>
               </tr>
             <?php
               $sql =  "select id, nome, regra_comissao, dados from comissario";

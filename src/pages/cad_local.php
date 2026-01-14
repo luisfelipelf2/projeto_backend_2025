@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_query($bancodedados, $sql)) {
         $msg = "Local cadastrado com sucesso!";
     } else {
-        $msg = "Erro ao cadastrar local.";
+        $msg = "Erro ao cadastrar local."; 
     }
 }
 ?>
